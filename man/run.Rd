@@ -157,7 +157,7 @@ i3: infercnv 3-state model (del, neutral, amp) configured based on normal cells 
 
 \item{sim_foreground}{don't use... for debugging, developer option.}
 
-\item{reassignCNVs}{(boolean) Given the CNV associated probability of belonging to each possible state, 
+\item{reassignCNVs}{(boolean) Given the CNV associated probability of belonging to each possible state,
                      reassign the state assignments made by the HMM to the state that has the highest probability. (default: TRUE)
 
 ######################
@@ -192,7 +192,7 @@ This should provide enough definition in the predictions while avoiding subclust
 
 \item{per_chr_hmm_subclusters_references}{Whether the per chromosome subclustering should also be done on references, which should not have as much variation as observations. (default = FALSE)}
 
-\item{z_score_filter}{Z-score used as a treshold to filter genes used for subclustering. 
+\item{z_score_filter}{Z-score used as a treshold to filter genes used for subclustering.
                       Applied based on reference genes to automatically ignore genes with high expression variability such as MHC genes. (default: 0.8)
 
 
@@ -300,15 +300,15 @@ data(infercnv_data_example)
 data(infercnv_annots_example)
 data(infercnv_genes_example)
 
-infercnv_object_example <- infercnv::CreateInfercnvObject(raw_counts_matrix=infercnv_data_example, 
+infercnv_object_example <- infercnv::CreateInfercnvObject(raw_counts_matrix=infercnv_data_example,
                                                           gene_order_file=infercnv_genes_example,
                                                           annotations_file=infercnv_annots_example,
                                                           ref_group_names=c("normal"))
 
 infercnv_object_example <- infercnv::run(infercnv_object_example,
                                          cutoff=1,
-                                         out_dir=tempfile(), 
-                                         cluster_by_groups=TRUE, 
+                                         out_dir=tempfile(),
+                                         cluster_by_groups=TRUE,
                                          denoise=TRUE,
                                          HMM=FALSE,
                                          num_threads=2,
